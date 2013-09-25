@@ -48,16 +48,28 @@ function starter_plugin_admin_scripts () {
 	wp_enqueue_script ('custom-starter-script');
 }
 
-
 // hook in our new Admin Page
-function wpguru_plugin_starter() {
+function wpguru_plugin_starter_menu() {
 	// Add a new submenu under DASHBOARD
-	add_dashboard_page('Plugin Starter', 'Plugin Starter', 'administrator', 'pluginStarter', 'pluginStarter');
+	// using a wrapper function:
+	// add_dashboard_page('Plugin Starter', 'Plugin Starter', 'administrator', 'pluginStarter', 'pluginStarter');
+	
+	// using array so we can call scripts easier
+	// explained here: http://codex.wordpress.org/Function_Reference/wp_enqueue_script
+	// and here: http://pippinsplugins.com/loading-scripts-correctly-in-the-wordpress-admin/
+	global $starter_plugin_admin_page;
+	$starter_plugin_admin_page = add_submenu_page ('index.php', __('Plugin Starter', 'plugin-starter'), __('Plugin Starter', 'plugin-starter'), 'administrator', 'pluginStarter', 'pluginStarter');
+	
 	// and make sure it loads with our custom script
-	add_action('admin_print_scripts-' . 'pluginStarter', 'starter_plugin_admin_scripts');
+	// add_action('admin_print_scripts-' . 'pluginStarter', 'starter_plugin_admin_scripts');
 }
-add_action('admin_menu', 'wpguru_plugin_starter');
+// before
+// add_action('admin_menu', 'wpguru_plugin_starter_menu');
+add_action('admin_menu', 'wpguru_plugin_starter_menu');
 
+
+
+////////////////////////////////////////////
 // here's the code for the actual admin page
 function pluginStarter () {
 	
