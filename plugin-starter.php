@@ -34,32 +34,6 @@
 // link some styles to the admin page
 $starterstyles = plugins_url ('starterstyles.css', __FILE__);
 wp_enqueue_style ('starterstyles', $starterstyles );
-// wp-enqueue_style ('zentabs', 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css');
-
-// load jQuery tabs for our admin section
-function zendash_load_js() {
-	
-	// wp_enqueue_scripts ('jquery');
-	// wp_enqueue_scripts ('jquery-ui');
-	wp_enqueue_script ('jquery-ui-tabs');
-}
-add_action('wp_enqueue_scripts', 'zendash_load_js' );
-
-// and here's the jQuery UI Tabs script
-function zendash_tabs_script () {
-	?>
-    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-    jQuery( "#tabs" ).tabs();
-	
-	jQuery('Why does everything suck?').dialogue();
-	
-     });
-     </script>
-
-<?php
-}
-add_action( 'admin_print_scripts', 'zendash_tabs_script' );
 
 // action function for above hook
 function wpguru_plugin_starter() {
