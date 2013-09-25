@@ -1,0 +1,1 @@
+﻿Plugin Starter==============This is template for developing plugins. It's a work in progress and will evolve as I find out more about how this works.Basic Usage============The code is well documented and will by default add a new Admin Page under the Dashboard section. 
