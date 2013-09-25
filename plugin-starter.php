@@ -26,27 +26,39 @@
 */
 
 ?>
-<!-- these lines are for DreamWeaver - they are ignored by WordPress -->
+<!-- these lines are for DreamWeaver - they are ignored by WordPress
 <link href="starter-styles.css" rel="stylesheet" type="text/css">
 <link href="starter-script.js" rel="script" type="script/javascript">
+-->
 <?php
 
 // link some styles to the admin page
-$starterstyles = plugins_url ('starterstyles.css', __FILE__);
+$starterstyles = plugins_url ('starter-styles.css', __FILE__);
 wp_enqueue_style ('starterstyles', $starterstyles );
 
+// register our JS file with our admin page
+function starter_plugin_admin_init () {
+	wp_register_script ('custom-starter-script', plugins_url( '/starter-script.js', __FILE__ ));
+}
+add_action ('admin_init', 'starter_plugin_admin_init');
 
-// action function for above hook
-function wpguru_plugin_starter() {
-
-// Add a new submenu under DASHBOARD
-add_dashboard_page('Plugin Starter', 'Plugin Starter', 'administrator', 'pluginStarter', 'pluginStarter');
+// now load the scripts we need
+function starter_plugin_admin_scripts () {
+	wp_enqueue_script ('jquery-ui-tabs');
+	wp_enqueue_script ('custom-starter-script');
 }
 
-// Hook for adding admin menu
+
+// hook in our new Admin Page
+function wpguru_plugin_starter() {
+	// Add a new submenu under DASHBOARD
+	add_dashboard_page('Plugin Starter', 'Plugin Starter', 'administrator', 'pluginStarter', 'pluginStarter');
+	// and make sure it loads with our custom script
+	add_action('admin_print_scripts-' . 'pluginStarter', 'starter_plugin_admin_scripts');
+}
 add_action('admin_menu', 'wpguru_plugin_starter');
 
-// display the admin page
+// here's the code for the actual admin page
 function pluginStarter () {
 	
 // check that the user has the required capability 
