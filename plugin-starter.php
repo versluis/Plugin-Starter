@@ -25,13 +25,6 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-?>
-<!-- these lines are for DreamWeaver - they are ignored by WordPress -->
-<link href="starter-styles.css" rel="stylesheet" type="text/css">
-<link href="starter-script.js" rel="script" type="script/javascript">
-
-<?php
-
 // Add a new submenu under DASHBOARD
 function wpguru_plugin_starter_menu() {
 	
@@ -46,7 +39,7 @@ function wpguru_plugin_starter_menu() {
 }
 add_action('admin_menu', 'wpguru_plugin_starter_menu');
 
-// register our JS and CSS files 
+// register our JS file
 function starter_plugin_admin_init () {
 	wp_register_script ('custom-starter-script', plugins_url( '/starter-script.js', __FILE__ ));
 }
