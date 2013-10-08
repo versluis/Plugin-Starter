@@ -35,7 +35,7 @@ function wpguru_plugin_starter_menu() {
 	// explained here: http://codex.wordpress.org/Function_Reference/wp_enqueue_script
 	// and here: http://pippinsplugins.com/loading-scripts-correctly-in-the-wordpress-admin/
 	global $starter_plugin_admin_page;
-	$starter_plugin_admin_page = add_submenu_page ('index.php', __('Plugin Starter', 'plugin-starter'), __('Plugin Starter', 'plugin-starter'), 'administrator', 'pluginStarter', 'pluginStarter');
+	$starter_plugin_admin_page = add_submenu_page ('index.php', __('Plugin Starter', 'plugin-starter'), __('Plugin Starter', 'plugin-starter'), 'manage_options', 'pluginStarter', 'pluginStarter');
 }
 add_action('admin_menu', 'wpguru_plugin_starter_menu');
 
