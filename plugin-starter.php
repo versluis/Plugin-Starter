@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name: Plugin Starter
- * Plugin URI: http://wpguru.co.uk
- * Description: Starting Point for Plugin Development
+ * Plugin Name: Plugin Starter (Admin Version)
+ * Plugin URI: https://wpguru.co.uk
+ * Description: Starting Point for Plugin Development with Admin Page, CSS and JS calls
  * Version: 1.0
  * Author: Jay Versluis
- * Author URI: http://wpguru.co.uk
+ * Author URI: https://wpguru.co.uk
  * License: GPL2
  */
  
-/*  Copyright 2013  Jay Versluis (email support@wpguru.co.uk)
+/*  Copyright 2020  Jay Versluis (email support@wpguru.co.uk)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -23,6 +23,17 @@
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+/* 
+
+This is a starter template for plugin development.
+Use this if your plugin needs an admin page.
+
+This repository contains a simpler version for use with plugins 
+called no-admin, handy if your plugin only has a handful of functions
+and no user facing settings. 
+
 */
 
 // Add a new submenu under DASHBOARD
